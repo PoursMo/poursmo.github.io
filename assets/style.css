@@ -29,6 +29,17 @@ header {
     text-align: left;
 }
 
+header::after {
+    content:"";
+    background: #343434;
+    position: absolute;
+    top: 0;
+    left: 220px;
+    margin-top: 25px;
+    height: calc(100% - 25px);
+    width: 3px;
+}
+
 a {
     color: unset;
     text-decoration: unset;

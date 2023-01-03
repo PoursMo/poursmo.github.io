@@ -13,15 +13,20 @@
 body {
     font-family: MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
     font-size: 16px;
+    position: relative;
+    text-align: center;
 }
 
 #body-wrapper {
+    display: inline-block;
     padding: 50px;
+    max-width: 1200px;
 }
 
 header {
     position: fixed;
-    width: 180px;
+    width: 200px;
+    text-align: left;
 }
 
 a {
@@ -55,3 +60,54 @@ a {
 .nav-list > a:hover {
     color: grey;
 }
+
+.nav-list > a.active {
+    padding: 5px;
+    background-color: #a5a5a52e;
+    border-radius: 4px;
+}
+
+.nav-list > a.active:hover {
+    color: unset;
+}
+
+#content-wrapper {
+    /* 1200 - padding - sidebar_width */
+    /* max-width: 1000px; */
+    width: min(1000px, 55vw);
+    margin-left: 250px;
+    text-align: left;
+}
+
+.example-content {
+    width: 500px;
+    height: 2000px;
+}
+
+
+/* Text styles */
+#content-wrapper p {
+    line-height: 2;
+    font-size: 14px;
+    color: #242424;
+}
+
+#content-wrapper p a {
+    color: grey;
+    text-decoration: underline;
+}
+
+#content-wrapper p a:hover {
+    color: #2e6c2b;
+}
+
+#content-wrapper video,
+#content-wrapper img {
+    display: block;
+    height: auto;
+    width: min(100%, 600px);
+}
+
+/* *********** */
+
+/* Add media query at 800px (for mobile) to collapse menu and review all style rules */

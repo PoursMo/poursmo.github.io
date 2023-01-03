@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/assets/style.css">
+        <link rel="icon" type="images/x-icon" href="/assets/favicon.ico" />
+        <title>Amaury Loubry - Unity Developer</title>
+    </head>
+    <body>
+        <div id="body-wrapper">
+            <header>
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        <a href="/">
+                            Amaury Loubry
+                        </a>
+                    </div>
+                    <div class="sidebar-subtitle">
+                        Unity developer
+                    </div>
+                </div>
+                <nav>
+                    <div class="nav-list">
+                        <a class="active" href="/procedural_dungeon_generation.html">Procedural dungeon generation</a>
+                        <a href="">My project 2</a>
+                        <a href="">My project bite</a>
+                    </div>
+                </nav>
+            </header>
+            <div id="content-wrapper">
+                <h2>Procedural Dungeon Generation</h2>
+                <p>
+                    When I decided I wanted this game to be a Roguelite, one of the first thing I wanted was to
+                    implement a procedural dungeon generation algorithm. <br> After doing some research, I liked the
+                    approach used for the game "TinyKeep", described in a
+                    <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">
+                        10 year old reddit post
+                    </a>.
+                    So I started following the steps, adapting them to the vision I had in mind for my game.
+                </p>
+
+                <h3>Step 1 : Generating rooms</h3>
+
+                <p>
+                    I generate a set number of rooms in random points inside a circle.
+                </p>
+
+                <video autoplay muted loop>
+                    <source src="/content/current_project/procedural_dungeon_generation/generation.mp4" type="video/mp4">
+                </video>
+
+                <h3>Step 2 : Separation Steering Behaviour</h3>
+
+                <p>
+                    I now separate the rooms using Craig Reynolds' separation steering behavior for
+                    autonomous characters until there is no overlap.<br>
+                    I added a "space between rooms" parameter to change the overlap size of the rooms so
+                    that we can add space between the rooms instead of having them touching each other.
+                </p>
+
+                <video autoplay muted loop>
+                    <source src="/content/current_project/procedural_dungeon_generation/separation.mp4" type="video/mp4">
+                </video>
+
+                <h3>Step 3 : Delaunay Triangulation</h3>
+
+                <p>
+                    We now want to create a graph that connects all the rooms together without intersecting lines.
+                    This is done using Delaunay Triangulation. <br>
+                    I created 3 structs :
+                    - An "Edge" struct made of 2 points (Vector3)
+                    - A "Triangle" struct made of 3 vertices and 3 edges
+                    - A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation
+                </p>
+
+                <video autoplay muted loop>
+                    <source src="/content/current_project/procedural_dungeon_generation/triangulation.mp4" type="video/mp4">
+                </video>
+
+                <h3>Step 4 : Spanning Tree</h3>
+
+                <video autoplay muted loop>
+                    <source src="/content/current_project/procedural_dungeon_generation/spanning_tree.mp4" type="video/mp4">
+                </video>
+
+                <h3>Step 5 : Adding Loops</h3>
+
+                <video autoplay muted loop>
+                    <source src="/content/current_project/procedural_dungeon_generation/adding_loops.mp4" type="video/mp4">
+                </video>
+
+                <h3>Result and full process</h3>
+
+                <img src="/content/current_project/procedural_dungeon_generation/final.jpg">
+                <video autoplay muted loop>
+                    <source src="/content/current_project/procedural_dungeon_generation/full_video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </body>
+</html>

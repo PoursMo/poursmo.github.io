@@ -74,7 +74,7 @@ a {
 #content-wrapper {
     /* 1200 - padding - sidebar_width */
     /* max-width: 1000px; */
-    width: min(1000px, 55vw);
+    width: min(850px, 55vw);
     margin-left: 250px;
     text-align: left;
 }
@@ -105,7 +105,7 @@ a {
 #content-wrapper img {
     display: block;
     height: auto;
-    width: min(100%, 600px);
+    width: min(100%, 700px);
 }
 
 /* *********** */

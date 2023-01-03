@@ -9,16 +9,33 @@ Step 1 : Generating rooms
 
 I generate a set number of rooms in random points inside a circle.
 
+[VIDEO : "generation"]
+
 Step 2 : Separation Steering Behaviour
 
 I now separate the rooms using Craig Reynolds' separation steering behavior for autonomous characters until there is no overlap.
 I added a "space between rooms" parameter to change the overlap size of the rooms so that we can add space between the rooms instead of having them touching each other.
 
+[VIDEO : "separation"]
+
 Step 3 : Delaunay Triangulation
 
 We now want to create a graph that connects all the rooms together without intersecting lines. This is done using Delaunay Triangulation.
-I created 3 structs to have an easier understanding of the code.
+I created 3 structs :
 - An "Edge" struct made of 2 points (Vector3)
 - A "Triangle" struct made of 3 vertices and 3 edges
 - A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation
 
+[VIDEO : "triangulation"]
+
+Step 4 : Spanning Tree
+
+[VIDEO : "spanning tree"]
+
+Step 5 : Adding Loops
+
+[VIDEO : "adding loops"]
+
+[IMAGE : "final"]
+
+[VIDEO : "full video"]

@@ -1,0 +1,57 @@
+@font-face {
+    font-family: Mermaid;
+    src:    url('/assets/font/Mermaid.woff') format('woff'),
+            url('/assets/font/Mermaid.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: MadeOuterSans;
+    src:    url('/assets/font/MADEOuterSans-Light.woff') format('woff'),
+            url('/assets/font/MADEOuterSans-Light.ttf')  format('truetype');
+}
+
+body {
+    font-family: MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#body-wrapper {
+    padding: 50px;
+}
+
+header {
+    position: fixed;
+    width: 180px;
+}
+
+a {
+    color: unset;
+    text-decoration: unset;
+}
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.sidebar-title {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.sidebar-subtitle {
+    font-size: 14px;
+    color: rgb(116, 116, 116);
+}
+
+.nav-list {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-list > a:hover {
+    color: grey;
+}

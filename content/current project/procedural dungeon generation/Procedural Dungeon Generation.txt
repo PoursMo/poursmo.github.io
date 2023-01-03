@@ -1,8 +1,8 @@
 Procedural Dungeon Generation
 
 When I decided I wanted this game to be a Roguelite, one of the first thing I wanted was to implement a procedural dungeon generation algorithm.
-After doing some research, I liked the approach used for the game "TinyKeep", described in a 10 year old reddit post :
-https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/
+After doing some research, I liked the approach used for the game "TinyKeep", described in [HYPERLINK : a 10 year old reddit post](https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/)
+
 So I started following the steps, adapting them to the vision I had in mind for my game.
 
 Step 1 : Generating rooms
@@ -22,9 +22,11 @@ Step 3 : Delaunay Triangulation
 
 We now want to create a graph that connects all the rooms together without intersecting lines. This is done using Delaunay Triangulation.
 I created 3 structs :
-- An "Edge" struct made of 2 points (Vector3)
-- A "Triangle" struct made of 3 vertices and 3 edges
-- A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation
+- An "Edge" struct made of 2 points (Vector3).
+- A "Triangle" struct made of 3 vertices and 3 edges.
+- A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation.
+
+The triangulation is done by adding points (in our case rooms) one by one to the triangulation, checking if it is in the circumcircle of any triangle in the triangulation, if it is we remove those triangles
 
 [VIDEO : "triangulation"]
 

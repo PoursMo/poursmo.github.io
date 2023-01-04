@@ -69,10 +69,13 @@
                 <p>
                     We now want to create a graph that connects all the rooms together without intersecting lines.
                     This is done using Delaunay Triangulation. <br>
-                    I created 3 structs :
-                    - An "Edge" struct made of 2 points (Vector3)
-                    - A "Triangle" struct made of 3 vertices and 3 edges
-                    - A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation
+                    I created 3 structs : <br>
+                    - An "Edge" struct made of 2 vertices <br>
+                    - A "Triangle" struct made of 3 vertices and 3 edges <br>
+                    - A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation <br>
+                    The triangulation is done by adding points (in our case rooms) one by one to the triangulation,
+                    checking if it is in the circumcircle of any triangle in the triangulation. If it is we remove those triangles,
+                    then create new ones with the added point.
                 </p>
 
                 <video autoplay muted loop>
@@ -80,6 +83,15 @@
                 </video>
 
                 <h3>Step 4 : Spanning Tree</h3>
+
+                <p>
+                    Now all the rooms are connected to their neighbors, which makes too many paths and loops.
+                    To minimize the loops, I created a minimal spanning tree out of the graph obtained with the triangulation.<br>
+                    A spanning tree is a graph that will include all of the rooms so that they're all reachable.<br>
+                    I created a "Graph" struct to store vertices and edges.<br>
+                    Using Prim's algorithm, I build this tree one vertex at a time,
+                    from the first vertex (room), at each step adding the cheapest possible connection from the tree to another vertex.
+                </p>
 
                 <video autoplay muted loop>
                     <source src="/content/current_project/procedural_dungeon_generation/spanning_tree.mp4" type="video/mp4">

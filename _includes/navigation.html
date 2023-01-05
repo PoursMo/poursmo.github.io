@@ -1,0 +1,10 @@
+<nav>
+    <div class="nav-list">
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}">{{ item.name }}</a>
+            {% if item.sub %}
+                {% include {{ item.sub }} %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</nav>

@@ -13,23 +13,16 @@
         <header>
             <div class="sidebar-header">
                 <div class="sidebar-title">
-                    <a href="/">
-                        Amaury Loubry
-                    </a>
+                    <a href="/">Amaury Loubry</a>
                 </div>
                 <div class="sidebar-subtitle">
                     Unity developer
                 </div>
             </div>
-            <nav>
-                <div class="nav-list">
-                    <a href="/procedural_dungeon_generation.html">Procedural dungeon generation</a>
-                    <a href="">My project 2</a>
-                    <a href="">My project bite</a>
-                </div>
-            </nav>
+            {% include navigation.html %}
         </header>
         <div id="content-wrapper">
+            <h2>{{ page.title }}</h2>
             {{ content }}
             <div class="example-content">
             </div>

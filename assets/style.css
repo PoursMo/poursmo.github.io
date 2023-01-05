@@ -10,8 +10,14 @@
             url('/assets/font/MADEOuterSans-Light.ttf')  format('truetype');
 }
 
+@font-face {
+    font-family: Philosopher;
+    src:    url('/assets/font/Philosopher-Regular.woff') format('woff'),
+            url('/assets/font/Philosopher-Regular.ttf') format('truetype');
+}
+
 body {
-    font-family: MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
+    font-family: Philosopher, MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
     font-size: 16px;
     position: relative;
     text-align: center;

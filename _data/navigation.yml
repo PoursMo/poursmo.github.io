@@ -1,6 +1,8 @@
 - name: Current Project
   link: /content/current_project.html
-  sub: current_project_sub.html
+  subs: 
+  - name: Procedural Dungeon Generation
+    link: /content/procedural_dungeon_generation.html
 - name: Test
   link: 
 - name: Junior Programmer Pathway

@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: Philosopher, MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
+    font-family: MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
     font-size: 16px;
     position: relative;
     text-align: center;
@@ -101,11 +101,14 @@ a {
     height: 2000px;
 }
 
+div.center {
+    text-align: center;
+}
 
 /* Text styles */
 #content-wrapper p {
     line-height: 2;
-    font-size: 14px;
+    font-size: 16px;
     color: #242424;
 }
 

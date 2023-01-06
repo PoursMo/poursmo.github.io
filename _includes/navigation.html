@@ -2,9 +2,11 @@
     <div class="nav-list">
         {% for item in site.data.navigation %}
         <a href="{{ item.link }}">{{ item.name }}</a>
-            {% if item.sub %}
-                {% include {{ item.sub }} %}
-            {% endif %}
+        {% for subitem in item.subs %}
+        <div class="nav-list">
+            <a href="{{ subitem.link }}">{{ subitem.name }}</a>
+        </div>
+        {% endfor %}
         {% endfor %}
     </div>
 </nav>

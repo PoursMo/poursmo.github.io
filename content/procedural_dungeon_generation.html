@@ -5,22 +5,21 @@ title: Procedural Dungeon Generation
 <p>
     When I decided I wanted this game to be a Roguelite, one of the first thing I wanted was to
     implement a procedural dungeon generation algorithm. <br> After doing some research, I liked the
-    approach used for the game "TinyKeep", described in a
+    approach used for the game "TinyKeep", described in
     <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">
-        10 year old reddit post
-    </a>.<br>
+        a 10 year old reddit post.
+    </a><br>
     So I started following the steps, adapting them to the vision I had in mind for my game.
 </p>
 
 <h3>Step 1 : Generating rooms</h3>
 
 <p>
-    I generate a set number of rooms in random points inside a circle.
+    I generate a set number of randomly chosen rooms in an array of room prefabs, on a random position inside a circle.
 </p>
 
 <video autoplay muted loop playsinline>
     <source src="/content/current_project/procedural_dungeon_generation/generation.mp4" type="video/mp4">
-
 </video>
 
 <h3>Step 2 : Separation Steering Behaviour</h3>
@@ -71,13 +70,25 @@ title: Procedural Dungeon Generation
 
 <h3>Step 5 : Adding Loops</h3>
 
+<p>
+    The tree contains no loops, which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph,
+    and if it's not part of the tree I give it a 15% chance of being re-incorporated.
+</p>
+
 <video autoplay muted loop playsinline>
     <source src="/content/current_project/procedural_dungeon_generation/adding_loops.mp4" type="video/mp4">
 </video>
 
-<h3>Result and full process</h3>
+<h3>Result</h3>
+
+<p>
+    Final result, a randomly generated set of rooms with a path (red graph).
+</p>
 
 <img src="/content/current_project/procedural_dungeon_generation/final.jpg">
+
+<h3>Full Process</h3>
+
 <video autoplay muted loop playsinline>
     <source src="/content/current_project/procedural_dungeon_generation/full_video.mp4" type="video/mp4">
 </video>

@@ -74,18 +74,26 @@ a {
     gap: 20px;
 }
 
-.nav-list > a:hover {
+.nav-item > a:hover {
     color: grey;
 }
 
-.nav-list > a.active {
-    padding: 5px;
-    background-color: #a5a5a52e;
-    border-radius: 4px;
+.nav-item.active {
+    color: rgb(133, 16, 16);
 }
 
-.nav-list > a.active:hover {
+.nav-item > a.active:hover {
     color: unset;
+}
+
+#nav-contact {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.nav-sublinks {
+    margin-left: 20px;
+    font-size: 15px;
 }
 
 #content-wrapper {
@@ -94,11 +102,6 @@ a {
     width: min(850px, 55vw);
     margin-left: 250px;
     text-align: left;
-}
-
-.example-content {
-    width: 500px;
-    height: 2000px;
 }
 
 div.center {
@@ -128,6 +131,17 @@ div.center {
     width: min(100%, 700px);
 }
 
+.social-icon {
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.social-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 /* *********** */
 
 /* Add media query at 800px (for mobile) to collapse menu and review all style rules */

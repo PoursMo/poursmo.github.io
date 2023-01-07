@@ -1,12 +1,17 @@
 <nav>
     <div class="nav-list">
         {% for item in site.data.navigation %}
-        <a href="{{ item.link }}">{{ item.name }}</a>
+        <div {% if page.url == item.link %}class="nav-item active"{% else %}class="nav-item"{% endif %}>
+            <a href="{{ item.link }}">{{ item.name }}</a>
+        </div>
         {% for subitem in item.subs %}
-        <div class="nav-list">
+        <div {% if page.url == subitem.link %}class="nav-sublinks nav-item active"{% else %}class="nav-sublinks nav-item"{% endif %}>
             <a href="{{ subitem.link }}">{{ subitem.name }}</a>
         </div>
         {% endfor %}
         {% endfor %}
+        <div id="nav-contact" {% if page.url == "/content/contact.html" %}class="nav-item active"{% else %}class="nav-item"{% endif %}>
+            <a href="/content/contact.html">Contact</a>
+        </div>
     </div>
 </nav>

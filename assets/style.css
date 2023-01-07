@@ -109,18 +109,24 @@ div.center {
 }
 
 /* Text styles */
-#content-wrapper p {
+#content-wrapper p,
+#content-wrapper .p-like {
     line-height: 2;
     font-size: 16px;
     color: #242424;
 }
 
-#content-wrapper p a {
+#content-wrapper .p-like {
+    line-height: unset !important;
+}
+#content-wrapper p a,
+#content-wrapper .p-like a {
     color: grey;
     text-decoration: underline;
 }
 
-#content-wrapper p a:hover {
+#content-wrapper p a:hover,
+#content-wrapper .p-like a:hover {
     color: #2e6c2b;
 }
 
@@ -141,6 +147,7 @@ div.center {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
 }
 /* *********** */
 

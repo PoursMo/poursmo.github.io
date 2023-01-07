@@ -5,3 +5,11 @@ title: Current Project
 <p>
     This is my most recent project
 </p>
+
+{% for item in site.data.navigation %}
+{% if item.name == page.title %}
+{% for subitem in item.subs %}
+<a href="{{ subitem.link }}">{{ subitem.name }}</a>
+{% endfor %}
+{% endif %}
+{% endfor %}

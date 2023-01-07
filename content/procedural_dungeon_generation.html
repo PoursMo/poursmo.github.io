@@ -4,31 +4,34 @@ title: Procedural Dungeon Generation
 ---
 <p>
     When I decided I wanted this game to be a Roguelite, one of the first thing I wanted was to
-    implement a procedural dungeon generation algorithm. <br> After doing some research, I liked the
-    approach used for the game "TinyKeep", described in
+    implement a procedural dungeon generation algorithm. <br>
+    My goal was to generate a set of randomly chosen rooms from an array of room
+    <a target="_blank" href="https://docs.unity3d.com/Manual/Prefabs.html">prefabs</a>
+    and interconnect them in such a way that every room is reachable, but there are only certain paths available to use<br>
+    After doing some research, I liked the approach used for the game "TinyKeep", described in
     <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">
         a 10 year old reddit post.
     </a><br>
-    So I started following the steps, adapting them to the vision I had in mind for my game.
+    I used the steps outlined here as a guide, adapting them to the vision I had in mind for my game.
 </p>
 
 <h3>Step 1 : Generating rooms</h3>
 
 <p>
-    I generate a set number of randomly chosen rooms in an array of room prefabs, on a random position inside a circle.
+    First, I instantiate the room prefabs. Each room is created on a random position inside a circle.
 </p>
 
 <video autoplay muted loop playsinline>
     <source src="/content/current_project/procedural_dungeon_generation/generation.mp4" type="video/mp4">
 </video>
 
-<h3>Step 2 : Separation Steering Behaviour</h3>
+<h3>Step 2 : Separation Steering Behavior</h3>
 
 <p>
-    I now separate the rooms using Craig Reynolds' separation steering behavior for
-    autonomous characters until there is no overlap.<br>
-    I added a "space between rooms" parameter to change the overlap size of the rooms so
-    that we can add space between the rooms instead of having them touching each other.
+    I now separate the rooms using
+    <a target="_blank" href="https://www.red3d.com/cwr/steer/">Craig Reynolds' separation steering behavior for autonomous characters</a>
+    until there is no overlap.<br>
+    I added a "space between rooms" parameter to change the overlap size of the rooms to space them out.
 </p>
 
 <video autoplay muted loop playsinline>
@@ -39,14 +42,18 @@ title: Procedural Dungeon Generation
 
 <p>
     We now want to create a graph that connects all the rooms together without intersecting lines.
-    This is done using Delaunay Triangulation. <br>
-    I created 3 structs : <br>
-    - An "Edge" struct made of 2 vertices <br>
-    - A "Triangle" struct made of 3 vertices and 3 edges <br>
-    - A "Circle" struct simply made of a center (Vector3) and a radius value. This struct is used to store the circumcircle of the triangles when doing the triangulation <br>
-    The triangulation is done by adding points (in our case rooms) one by one to the triangulation,
-    checking if it is in the circumcircle of any triangle in the triangulation. If it is we remove those triangles,
-    then create new ones with the added point.
+    This is done using
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Delaunay_triangulation">
+        Delaunay Triangulation.
+    </a><br>
+    I created 3 structs :<br>
+    - An "Edge" struct made of 2 vertices.<br>
+    - A "Triangle" struct made of 3 vertices and 3 edges.<br>
+    - A "Circle" struct simply made of a center (Vector3) and a radius value.
+    This struct is used to store the circumcircle of the triangles when doing the triangulation.<br>
+    The triangulation is done by adding points (in our case, rooms) one by one to the triangulation,
+    checking if it is in the circumcircle of any triangle in the triangulation. If it is, we remove those triangles
+    and create new ones with the added point.
 </p>
 
 <video autoplay muted loop playsinline>
@@ -56,22 +63,25 @@ title: Procedural Dungeon Generation
 <h3>Step 4 : Spanning Tree</h3>
 
 <p>
-    Now all the rooms are connected to their neighbors, which makes too many paths and loops.
-    To minimize the loops, I created a minimal spanning tree out of the graph obtained with the triangulation.<br>
-    A spanning tree is a graph that will include all of the rooms so that they're all reachable.<br>
+    Now, all the rooms are connected to their neighbors, which results in an uninteresting dungeon with too many paths.
+    So I created a
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">minimal spanning tree</a>
+    from the graph obtained with the triangulation.<br>
+    The spanning tree will make it so that there is always only 1 possible path from one room to another.
+    A spanning tree is a graph that will always include all of the rooms, making them all reachable.<br>
     I created a "Graph" struct to store vertices and edges.<br>
-    Using Prim's algorithm, I build this tree one vertex at a time,
-    from the first vertex (room), at each step adding the cheapest possible connection from the tree to another vertex.
+    Using Prim's algorithm, I built this tree one vertex at a time,
+    starting with the first vertex (room), at each step adding the cheapest possible connection from the tree to another vertex in the triangulated graph.
 </p>
 
 <video autoplay muted loop playsinline>
     <source src="/content/current_project/procedural_dungeon_generation/spanning_tree.mp4" type="video/mp4">
 </video>
 
-<h3>Step 5 : Adding Loops</h3>
+<h3>Step 5 : Adding Cycles</h3>
 
 <p>
-    The tree contains no loops, which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph,
+    The tree contains no cycles, which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph,
     and if it's not part of the tree I give it a 15% chance of being re-incorporated.
 </p>
 

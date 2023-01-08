@@ -7,7 +7,7 @@ title: Procedural Dungeon Generation
     implement a procedural dungeon generation algorithm. <br>
     My goal was to generate a set of randomly chosen rooms from an array of room
     <a target="_blank" href="https://docs.unity3d.com/Manual/Prefabs.html">prefabs</a>
-    and interconnect them in such a way that every room is reachable, but there are only certain paths available to use<br>
+    and interconnect them in such a way that every room is reachable.<br>
     After doing some research, I liked the approach used for the game "TinyKeep", described in
     <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">
         a 10 year old reddit post.
@@ -28,7 +28,7 @@ title: Procedural Dungeon Generation
 <h3>Step 2 : Separation Steering Behavior</h3>
 
 <p>
-    I now separate the rooms using
+    I separate the rooms using
     <a target="_blank" href="https://www.red3d.com/cwr/steer/">Craig Reynolds' separation steering behavior for autonomous characters</a>
     until there is no overlap.<br>
     I added a "space between rooms" parameter to change the overlap size of the rooms to space them out.
@@ -41,7 +41,7 @@ title: Procedural Dungeon Generation
 <h3>Step 3 : Delaunay Triangulation</h3>
 
 <p>
-    We now want to create a graph that connects all the rooms together without intersecting lines.
+    I create a graph that connects all the rooms together without intersecting lines.
     This is done using
     <a target="_blank" href="https://en.wikipedia.org/wiki/Delaunay_triangulation">
         Delaunay Triangulation.
@@ -64,14 +64,16 @@ title: Procedural Dungeon Generation
 
 <p>
     Now, all the rooms are connected to their neighbors, which results in an uninteresting dungeon with too many paths.
-    So I created a
+    So I create a
     <a target="_blank" href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">minimal spanning tree</a>
     from the graph obtained with the triangulation.<br>
-    The spanning tree will make it so that there is always only 1 possible path from one room to another.
-    A spanning tree is a graph that will always include all of the rooms, making them all reachable.<br>
-    I created a "Graph" struct to store vertices and edges.<br>
-    Using Prim's algorithm, I built this tree one vertex at a time,
-    starting with the first vertex (room), at each step adding the cheapest possible connection from the tree to another vertex in the triangulated graph.
+    A spanning tree is a graph that will always include all of the rooms, making them all reachable.
+    It will make it so that there is always only 1 possible path from one room to another.<br>
+    I created a "Graph" struct to store a set of vertices and edges.<br>
+    Using
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim's algorithm,</a>
+    The tree is built one vertex at a time, from a starting vertex (the first generated room),
+    at each step adding the shortest possible edge from the tree to another vertex that is in the triangulated graph but not part of the tree.
 </p>
 
 <video autoplay muted loop playsinline>
@@ -82,8 +84,10 @@ title: Procedural Dungeon Generation
 <h3>Step 5 : Adding Cycles</h3>
 
 <p>
-    The tree contains no cycles, which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph,
-    and if it's not part of the tree I give it a 15% chance of being re-incorporated.
+    The tree contains no
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles,</a>
+    which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph that are not part of the tree,
+    and give each a 15% chance of being re-incorporated.
 </p>
 
 <video autoplay muted loop playsinline>
@@ -93,7 +97,7 @@ title: Procedural Dungeon Generation
 <h3>Result</h3>
 
 <p>
-    Final result, a randomly generated set of rooms with a path (red graph).
+    The final result is a randomly generated set of rooms with multiple paths for the player to take (red graph).
 </p>
 
 <img src="/content/current_project/procedural_dungeon_generation/final.png">

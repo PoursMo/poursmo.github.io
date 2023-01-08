@@ -6,21 +6,14 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/assets/style.css">
     <link rel="icon" type="images/x-icon" href="/assets/favicon.ico" />
+    <script src="/assets/script.js"></script>
     <title>Amaury Loubry - Unity Developer</title>
 </head>
 <body>
     <div id="body-wrapper">
-        <header>
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    <a href="/">Amaury Loubry</a>
-                </div>
-                <div class="sidebar-subtitle">
-                    Unity developer
-                </div>
-            </div>
-            {% include navigation.html %}
-        </header>
+
+        {% include header.html %}
+
         <div id="content-wrapper">
             <h2>{{ page.title }}</h2>
             {{ content }}

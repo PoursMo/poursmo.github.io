@@ -144,7 +144,7 @@ div.center {
 #content-wrapper img {
     display: block;
     height: auto;
-    width: min(100%, 700px);
+    width: min(100%, 500px);
 }
 
 .social-icon {
@@ -241,5 +241,9 @@ div.center {
     .sidebar-subtitle {
         font-size: 16px;
         color: rgb(139 139 139);
+    }
+
+    #mobile-menu-toggle {
+        margin-right: 5px;
     }
 }

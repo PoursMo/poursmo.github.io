@@ -3,10 +3,11 @@
     "",
     "\\assets",
     "\\content",
+    "\\content\\Test",
     "\\_data",
     "\\_includes",
     "\\_layouts"
   ],
-  "SelectedNode": "\\_includes\\sidebar-content.html",
+  "SelectedNode": "\\content\\Test\\movie_002.mp4",
   "PreviewInSolutionExplorer": false
 }

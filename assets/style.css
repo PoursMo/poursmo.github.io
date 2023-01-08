@@ -144,7 +144,7 @@ div.center {
 #content-wrapper img {
     display: block;
     height: auto;
-    width: min(100%, 500px);
+    width: min(100%, 400px);
 }
 
 .social-icon {

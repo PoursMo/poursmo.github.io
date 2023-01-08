@@ -3,13 +3,13 @@
   subs:
   - name: Procedural Dungeon Generation
     link: /content/procedural_dungeon_generation.html
-- name: Test
-  link:
 - name: Junior Programmer Pathway
-  link:
+  link: /content/junior_programmer_pathway.html
 - name: Certified Associate Programmer Courseware
-  link:
+  link: /content/certified_associate_programmer_courseware.html
 - name: Unity & C# Fundamentals
+  link: /content/unity_fundamentals.html
+- name: Test
   link:
 - name: Ball Throw Project
   link:

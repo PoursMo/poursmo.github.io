@@ -3,7 +3,7 @@ layout: default
 title: Procedural Dungeon Generation
 ---
 <p>
-    When I decided I wanted this game to be a Roguelite, one of the first thing I wanted was to
+    When I decided I wanted this game to be a Roguelite, one of the firsts thing I wanted was to
     implement a procedural dungeon generation algorithm. <br>
     My goal was to generate a set of randomly chosen rooms from an array of room
     <a target="_blank" href="https://docs.unity3d.com/Manual/Prefabs.html">prefabs</a>
@@ -60,7 +60,7 @@ title: Procedural Dungeon Generation
     <source src="/content/current_project/procedural_dungeon_generation/triangulation.mkv" type="video/mp4">
 </video>
 
-<h3>Step 4 : Spanning Tree</h3>
+<h3>Step 4 : Minimum Spanning Tree</h3>
 
 <p>
     Now, all the rooms are connected to their neighbors, which results in an uninteresting dungeon with too many paths.
@@ -68,12 +68,13 @@ title: Procedural Dungeon Generation
     <a target="_blank" href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">minimal spanning tree</a>
     from the graph obtained with the triangulation.<br>
     A spanning tree is a graph that will always include all of the rooms, making them all reachable.
-    It will make it so that there is always only 1 possible path from one room to another.<br>
+    It's a minimum spanning tree when we we only incorporate the minimum possible total edge distance.<br>
     I created a "Graph" struct to store a set of vertices and edges.<br>
     Using
     <a target="_blank" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim's algorithm,</a>
-    The tree is built one vertex at a time, from a starting vertex (the first generated room),
-    at each step adding the shortest possible edge from the tree to another vertex that is in the triangulated graph but not part of the tree.
+    the tree is built one vertex at a time, from a starting vertex (the first generated room).
+    With each subsequent step, the vertex that is part of the triangulated graph and
+    at the closest distance from the tree is added to the tree.
 </p>
 
 <video autoplay muted loop playsinline>
@@ -84,7 +85,7 @@ title: Procedural Dungeon Generation
 <h3>Step 5 : Adding Cycles</h3>
 
 <p>
-    The tree contains no
+    Now there is always only 1 possible path from one room to another because the tree contains no
     <a target="_blank" href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles,</a>
     which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph that are not part of the tree,
     and give each a 15% chance of being re-incorporated.

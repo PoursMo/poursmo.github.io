@@ -74,7 +74,7 @@ body {
 }
 
 .nav-list {
-    margin-left: 10px;
+    margin-left: 5px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -142,9 +142,21 @@ div.center {
 
 #content-wrapper video,
 #content-wrapper img {
+
+}
+
+.one-one-ratio {
     display: block;
     height: auto;
     width: min(100%, 400px);
+    margin: auto;
+}
+
+.sixteen-nine-ratio {
+    display: block;
+    height: auto;
+    width: min(100%, 700px);
+    margin: auto;
 }
 
 .social-icon {

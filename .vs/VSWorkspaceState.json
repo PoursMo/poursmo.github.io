@@ -3,11 +3,11 @@
     "",
     "\\assets",
     "\\content",
-    "\\content\\Test",
+    "\\content\\unity_fundamentals",
     "\\_data",
     "\\_includes",
     "\\_layouts"
   ],
-  "SelectedNode": "\\content\\unity_fundamentals.html",
+  "SelectedNode": "\\_includes\\sidebar-content.html",
   "PreviewInSolutionExplorer": false
 }

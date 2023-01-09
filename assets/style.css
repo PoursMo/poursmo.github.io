@@ -19,14 +19,14 @@
 body {
     font-family: MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
     font-size: 16px;
-    position: relative;
-    text-align: center;
 }
 
 #body-wrapper {
-    display: inline-block;
-    padding: 50px;
     max-width: 1200px;
+    /* This margins is calculated from the size of the content to center it.
+        WARNING: You need to update this if you change the size of the sidebar or the content-wrapper.
+        Formula is : half of the viewport width - half of the content-wrapper width - half of the sidebar width */
+    margin-left: calc(50vw - min(850px, 55vw) / 2 - 125px);
 }
 
 
@@ -164,6 +164,10 @@ div.center {
 /* Add media query at 800px (for mobile) to collapse menu and review all style rules */
 
 @media all and (max-width: 800px)  {
+    #body-wrapper {
+        margin-left: unset;
+    }
+
     #header-desktop {
         display: none;
     }

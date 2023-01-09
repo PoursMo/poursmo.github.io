@@ -23,6 +23,7 @@ body {
 
 #body-wrapper {
     max-width: 1200px;
+    padding-top: 50px;
     /* This margins is calculated from the size of the content to center it.
         WARNING: You need to update this if you change the size of the sidebar or the content-wrapper.
         Formula is : half of the viewport width - half of the content-wrapper width - half of the sidebar width */

@@ -10,15 +10,20 @@ layout: default
     Feel free to explore my works within and to contact me with any questions, collaborations, etc.
 </p>
 
-<div style="display:flex; flex-direction:row">
-<a href="/content/procedural_dungeon_generation.html">
-    <video autoplay muted loop playsinline>
-        <source src="/content/current_project/procedural_dungeon_generation/full_video.mkv" type="video/mp4">
-    </video>
-</a>
-<a href="/">
-    <video autoplay muted loop playsinline>
-        <source src="/content/Test/movie_002.mp4" type="video/mp4">
-    </video>
-</a>
+{% for item in site.data.collage %}
+    {% assign remainder = forloop.index | modulo: 2 %}
+    {% if remainder == 1 %}<div style="display:flex; flex-direction:row">
+    {% endif %}
+    <a href={{ item.link }}>
+        {% if item.type == "image" %}
+        <img class={{ item.class }} src={{ item.source }}>
+        {% else if item.type == "video" %}
+        <video class={{ item.class }} autoplay muted loop playsinline>
+            <source src={{ item.source }} type="video/mp4">
+        </video>
+        {% endif %}
+    </a>
+    {% if remainder == 0 %}
 </div>
+    {% endif %}
+    {% endfor %}

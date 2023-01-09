@@ -147,18 +147,25 @@ div.center {
 }
 
 .one-one-ratio {
+    margin: auto;
     display: block;
     height: auto;
     width: min(100%, 400px);
-    margin: auto;
 }
 
 .sixteen-nine-ratio {
+    margin: auto;
     display: block;
     height: auto;
     width: min(100%, 700px);
-    margin: auto;
 }
+
+.collage {
+    display: block;
+    height: 250px;
+    width: auto;
+}
+
 
 .social-icon {
     display: inline-block !important;

@@ -1,24 +1,15 @@
 - type: video
-  class: collage
   source: /content/current_project/procedural_dungeon_generation/full_video.mkv
-  link: /
+  link: /content/procedural_dungeon_generation.html
 - type: image
-  class: collage
   source: /content/unity_fundamentals/2d_gamekit.jpg
   link: /content/unity_fundamentals.html
 - type: video
-  class: collage
   source: /content/unity_fundamentals/3d_project.mkv
   link: /content/unity_fundamentals.html
 - type: video
-  class: collage
-  source: /content/current_project/procedural_dungeon_generation/full_video.mkv
-  link: /content/procedural_dungeon_generation.html
-- type: video
-  class: collage
-  source: /content/current_project/procedural_dungeon_generation/full_video.mkv
-  link: /
+  source: /content/certified_courseware/ski_race.mp4
+  link: /content/certified_courseware.html
 - type: image
-  class: collage
   source: /content/unity_fundamentals/2d_gamekit.jpg
   link: /content/unity_fundamentals.html

@@ -3,11 +3,11 @@
     "",
     "\\assets",
     "\\content",
-    "\\content\\unity_fundamentals",
+    "\\content\\visualizing_math",
     "\\_data",
     "\\_includes",
     "\\_layouts"
   ],
-  "SelectedNode": "\\_layouts\\default.html",
+  "SelectedNode": "\\content\\visualizing_math.html",
   "PreviewInSolutionExplorer": false
 }

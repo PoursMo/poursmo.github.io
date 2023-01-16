@@ -18,7 +18,7 @@
 
 body {
     font-family: MadeOuterSans, Mermaid, Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 #body-wrapper {
@@ -75,7 +75,7 @@ body {
 }
 
 .nav-list {
-    margin-left: 5px;
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -164,6 +164,7 @@ div.center {
     display: block;
     height: 250px;
     width: auto;
+    border: 5px solid #808080;
 }
 
 

@@ -2,7 +2,9 @@
   link: /content/current_project.html
   subs:
   - name: Procedural Dungeon Generation
-    link: /content/procedural_dungeon_generation.html
+    link: /content/current_project/procedural_dungeon_generation.html
+  - name: Combat
+    link: /content/current_project/combat.html
 - name: Junior Programmer Pathway
   link: /content/junior_programmer_pathway.html
 - name: Certified Associate Programmer Course

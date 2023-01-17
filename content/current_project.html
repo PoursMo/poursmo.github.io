@@ -3,9 +3,23 @@ layout: default
 title: Current Project
 ---
 <p>
-    This is my most recent project. The idea is to create a roguelite (a 
-    <a target="_blank" href="https://en.wikipedia.org/wiki/Roguelike">roguelike</a>
-    with progression elements that persists even after failure) based on melee combat with the possiblity to parry enemy attacks.<br>
-    The player would progress through procedurally generated levels and find powerups on the way.<br>
+    This is my most recent project. The idea is to create a roguelite (a
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Roguelike">Roguelike</a>
+    with progression elements that persists even after failure) based on melee combat.<br><br />
+    My objective for the game is to have the player progress through procedurally generated levels and find power-ups
+    that will make them stronger for the current run they're on,
+    as well as persisting elements like permanent bonuses.<br />
+    I also want to add a boss fight with telegraphed attacks, and make the combat system simple, reactive, and rewarding skill (like a
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Soulslike">Soulslike</a>)<br><br />
     Feel free to go check out the subcategories of this project to see what I worked on so far.
 </p>
+
+<!--{% for item in site.data.navigation %}
+{% if item.name == page.title %}
+    {% for subitem in item.subs %}
+    <div class="nav-sublinks nav-item">
+        <a href="{{ subitem.link }}">{{ subitem.name }}</a>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endfor %}-->

@@ -3,11 +3,13 @@
     "",
     "\\assets",
     "\\content",
+    "\\content\\current_project",
+    "\\content\\current_project\\combat",
     "\\content\\visualizing_math",
     "\\_data",
     "\\_includes",
     "\\_layouts"
   ],
-  "SelectedNode": "\\content\\visualizing_math.html",
+  "SelectedNode": "\\content\\current_project\\combat.html",
   "PreviewInSolutionExplorer": false
 }

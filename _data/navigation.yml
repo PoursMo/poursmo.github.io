@@ -5,13 +5,13 @@
     link: /content/current_project/procedural_dungeon_generation.html
   - name: Combat
     link: /content/current_project/combat.html
-- name: Junior Programmer Pathway
-  link: /content/junior_programmer_pathway.html
+- name: Unnamed FPS Project
+  link: /content/fps_project.html
 - name: Certified Associate Programmer Course
   link: /content/certified_courseware.html
 - name: Unity & C# Fundamentals
   link: /content/unity_fundamentals.html
+- name: Junior Programmer Pathway
+  link: /content/junior_programmer_pathway.html
 - name: Visualizing Math
   link: /content/visualizing_math.html
-- name: Unnamed FPS Project
-  link: /content/fps_project.html

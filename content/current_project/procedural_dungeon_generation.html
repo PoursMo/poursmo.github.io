@@ -3,7 +3,7 @@ layout: default
 title: Procedural Dungeon Generation
 ---
 <p>
-    When I decided I wanted this game to be a Roguelite, one of the firsts thing I wanted was to
+    When I decided I wanted this game to be a Roguelite, one of the first thing I wanted was to
     implement a procedural dungeon generation algorithm. <br>
     My goal was to generate a set of randomly chosen rooms from an array of room
     <a target="_blank" href="https://docs.unity3d.com/Manual/Prefabs.html">prefabs</a>
@@ -50,7 +50,7 @@ title: Procedural Dungeon Generation
     - An "Edge" struct made of 2 vertices.<br>
     - A "Triangle" struct made of 3 vertices and 3 edges.<br>
     - A "Circle" struct simply made of a center (Vector3) and a radius value.
-    This struct is used to store the circumcircle of the triangles when doing the triangulation.<br>
+    This struct is used to store the circumcircle of the triangles which are necessary to perform triangulation.<br>
     The triangulation is done by adding points (in our case, rooms) one by one to the triangulation,
     checking if it is in the circumcircle of any triangle in the triangulation. If it is, we remove those triangles
     and create new ones with the added point.
@@ -85,10 +85,10 @@ title: Procedural Dungeon Generation
 <h3>Step 5 : Adding Cycles</h3>
 
 <p>
-    Now there is always only 1 possible path from one room to another because the tree contains no
+    Now, there is always only 1 possible path from one room to another because the tree contains no
     <a target="_blank" href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles,</a>
     which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph that are not part of the tree,
-    and give each a 15% chance of being re-incorporated.
+    and give each a 15% chance of being incorporated in the final graph.
 </p>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
@@ -101,7 +101,7 @@ title: Procedural Dungeon Generation
     The final result is a randomly generated set of rooms with multiple paths for the player to take (red graph).
 </p>
 
-<img  class="one-one-ratio" src="/content/current_project/procedural_dungeon_generation/final.png">
+<img class="one-one-ratio" src="/content/current_project/procedural_dungeon_generation/final.png">
 
 <h3>Full Process</h3>
 

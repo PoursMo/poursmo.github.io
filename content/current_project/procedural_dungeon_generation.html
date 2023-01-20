@@ -9,9 +9,7 @@ title: Procedural Dungeon Generation
     <a target="_blank" href="https://docs.unity3d.com/Manual/Prefabs.html">prefabs</a>
     and interconnect them in such a way that every room is reachable.<br>
     After doing some research, I liked the approach used for the game "TinyKeep", described in
-    <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">
-        a 10 year old reddit post.
-    </a><br>
+    <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">a 10 year old reddit post</a>.<br>
     I used the steps outlined here as a guide, adapting them to the vision I had in mind for my game.
 </p>
 
@@ -43,9 +41,7 @@ title: Procedural Dungeon Generation
 <p>
     I create a graph that connects all the rooms together without intersecting lines.
     This is done using
-    <a target="_blank" href="https://en.wikipedia.org/wiki/Delaunay_triangulation">
-        Delaunay Triangulation.
-    </a><br>
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Delaunay_triangulation">Delaunay Triangulation</a>.<br>
     I created 3 structs :<br>
     - An "Edge" struct made of 2 vertices.<br>
     - A "Triangle" struct made of 3 vertices and 3 edges.<br>
@@ -71,7 +67,7 @@ title: Procedural Dungeon Generation
     It's a minimum spanning tree when we we only incorporate the minimum possible total edge distance.<br>
     I created a "Graph" struct to store a set of vertices and edges.<br>
     Using
-    <a target="_blank" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim's algorithm,</a>
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim's algorithm</a>,
     the tree is built one vertex at a time, from a starting vertex (the first generated room).
     With each subsequent step, the vertex that is part of the triangulated graph and
     at the closest distance from the tree is added to the tree.
@@ -86,7 +82,7 @@ title: Procedural Dungeon Generation
 
 <p>
     Now, there is always only 1 possible path from one room to another because the tree contains no
-    <a target="_blank" href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles,</a>
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles</a>,
     which makes the dungeon not very interesting. So I loop through all the edges from the triangulated graph that are not part of the tree,
     and give each a 15% chance of being incorporated in the final graph.
 </p>

@@ -3,12 +3,11 @@
     "",
     "\\assets",
     "\\content",
+    "\\content\\courses",
     "\\content\\current_project",
-    "\\content\\visualizing_math",
     "\\_data",
-    "\\_includes",
     "\\_layouts"
   ],
-  "SelectedNode": "\\content\\junior_programmer_pathway.html",
+  "SelectedNode": "\\content\\fps_project.html",
   "PreviewInSolutionExplorer": false
 }

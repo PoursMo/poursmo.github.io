@@ -1,3 +1,5 @@
+- name: Champions
+  link: /content/champions.html
 - name: p5 Shooter
   link: /content/p5_shooter.html
 - name: Roguelite

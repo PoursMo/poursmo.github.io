@@ -57,6 +57,11 @@ body {
     width: 3px;
 }
 
+#header-desktop nav { 
+    max-height: calc(100vh - 220px);
+    overflow:auto;
+}
+
 .sidebar-header {
     display: flex;
     flex-direction: column;
@@ -75,7 +80,7 @@ body {
 }
 
 .nav-list {
-    margin-left: 10px;
+    margin-right: 12px;
     display: flex;
     flex-direction: column;
     gap: 20px;

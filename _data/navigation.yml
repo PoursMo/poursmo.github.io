@@ -1,13 +1,8 @@
-- name: Champions
-  link: /content/champions.html
 - name: p5 Shooter
   link: /content/p5_shooter.html
-- name: Roguelite
-  link: /content/roguelite_project.html
-  subs:
-  - name: Procedural Dungeon Generation
-    link: /content/roguelite_project/procedural_dungeon_generation.html
-- name: FPS Project
+- name: Procedural Dungeon Generation
+  link: /content/procedural_dungeon_generation.html
+- name: First Person Project
   link: /content/fps_project.html
 - name: Unity Associate Programmer
   link: /content/courses.html

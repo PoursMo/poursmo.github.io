@@ -3,13 +3,12 @@ layout: default
 title: Procedural Dungeon Generation
 ---
 <p>
-    When I decided I wanted this game to be a Roguelite, one of the first things I wanted to
-    implement was a procedural dungeon generation algorithm. <br>
+    This algorithm comes from a Roguelite game that I started to make but didn't finish.<br>
     My goal was to generate a set of randomly chosen rooms from an array of room
     <a target="_blank" href="https://docs.unity3d.com/Manual/Prefabs.html">prefabs</a>
     and interconnect them in such a way that every room is reachable.
     After doing some research, I liked the approach used for the game "TinyKeep", described in
-    <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">a 10 year old reddit post</a>.
+    <a target="_blank" href="https://www.reddit.com/r/gamedev/comments/1dlwc4/procedural_dungeon_generation_algorithm_explained/">a 10+ year old reddit post</a>.
     I used the steps outlined here as a guide, adapting them to the vision I had in mind for my game.
 </p>
 
@@ -20,7 +19,7 @@ title: Procedural Dungeon Generation
 </p>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
-    <source src="/content/roguelite_project/procedural_dungeon_generation/generation.mkv" type="video/mp4">
+    <source src="/content/procedural_dungeon_generation/generation.mkv" type="video/mp4">
 </video>
 
 <h3>Step 2 : Separation Steering Behavior</h3>
@@ -33,7 +32,7 @@ title: Procedural Dungeon Generation
 </p>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
-    <source src="/content/roguelite_project/procedural_dungeon_generation/separation.mkv" type="video/mp4">
+    <source src="/content/procedural_dungeon_generation/separation.mkv" type="video/mp4">
 </video>
 
 <h3>Step 3 : Delaunay Triangulation</h3>
@@ -53,7 +52,7 @@ title: Procedural Dungeon Generation
 </p>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
-    <source src="/content/roguelite_project/procedural_dungeon_generation/triangulation.mkv" type="video/mp4">
+    <source src="/content/procedural_dungeon_generation/triangulation.mkv" type="video/mp4">
 </video>
 
 <h3>Step 4 : Minimum Spanning Tree</h3>
@@ -74,7 +73,7 @@ title: Procedural Dungeon Generation
 </p>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
-    <source src="/content/roguelite_project/procedural_dungeon_generation/spanning_tree.mkv" type="video/mp4">
+    <source src="/content/procedural_dungeon_generation/spanning_tree.mkv" type="video/mp4">
 </video>
 
 
@@ -88,7 +87,7 @@ title: Procedural Dungeon Generation
 </p>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
-    <source src="/content/roguelite_project/procedural_dungeon_generation/adding_loops.mkv" type="video/mp4">
+    <source src="/content/procedural_dungeon_generation/adding_loops.mkv" type="video/mp4">
 </video>
 
 <h3>Result</h3>
@@ -97,10 +96,10 @@ title: Procedural Dungeon Generation
     The final result is a randomly generated set of rooms with multiple paths for the player to take (red graph).
 </p>
 
-<img class="one-one-ratio" src="/content/roguelite_project/procedural_dungeon_generation/final.png">
+<img class="one-one-ratio" src="/content/procedural_dungeon_generation/final.png">
 
 <h3>Full Process</h3>
 
 <video class="one-one-ratio" autoplay muted loop playsinline>
-    <source src="/content/roguelite_project/procedural_dungeon_generation/full_video.mkv" type="video/mp4">
+    <source src="/content/procedural_dungeon_generation/full_video.mkv" type="video/mp4">
 </video>
